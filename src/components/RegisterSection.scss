@@ -1,0 +1,85 @@
+.register {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #fff;
+    max-width: 500px;
+    padding: 20px 32px;
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+      .heading{
+        font-size: 36px;
+      }
+      span{
+        font-size: 24px;
+        cursor: pointer;
+      }
+    }
+    .subheading {
+      font-size: 20px;
+      margin-bottom: 24px;
+      color : rgba(0, 0, 0, 0.7) ;
+    }
+    form {
+      input {
+        width: 100%;
+        border: 1px solid  #ddd;
+        padding: 12px 16px;
+        border-radius: 5px;
+        background-color: #eee;
+        outline: none;
+      }
+      .error {
+        position: absolute;
+        background-color: #bf0505;
+        color : #fff;
+        padding: 9px 13px;
+        z-index: 2;
+        font-size: .9rem;
+      }
+      .first-last{
+        margin-bottom: 1rem;
+        position: relative;
+        display: grid; 
+        grid-template-columns: 1fr 1fr;
+        gap:  24px;
+        .error-firstname {
+          transform: translate(-110%,0);
+          left : 0 ;
+        }
+        .error-lastname {
+          right: 0;
+          transform: translate(120% , 0);
+        }
+      }
+      .email {
+        margin-bottom: 12px;
+      }
+      .password-group{
+        margin-bottom: 12px;
+      }
+      .birthday-group{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        gap : 8px ;
+        select{
+          width: 100%;
+        }
+      }
+    }
+  }
+}

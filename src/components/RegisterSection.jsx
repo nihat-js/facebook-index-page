@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import './RegisterSection.scss'
+
 
 export default function RegisterSection(props) {
 
@@ -46,12 +48,17 @@ export default function RegisterSection(props) {
                 {errors.firstName && touched.firstName && <span className='error error-firstname'> {errors.firstName}  </span>}
 
                 <Field name="lastName" placeholder='Last Name' />
-                {errors.lastName && touched.lastName && <span className='error error-firstname'> {errors.lastName}  </span>}
+                {errors.lastName && touched.lastName && <span className='error error-lastname'> {errors.lastName}  </span>}
               </div>
 
               <div className="email input-group">
                 <Field name="email" placeholder='Email or Phone number' />
                 {errors.email && touched.email && <span className='error error-firstname'> {errors.email}  </span>}
+              </div>
+
+              <div className="password-group ">
+                <Field type='password' name="password" placeholder='Password' />
+                {errors.password && touched.password && <span className='error'> {errors.password}  </span>}
               </div>
 
               <div className="birthday-group">
@@ -81,10 +88,25 @@ export default function RegisterSection(props) {
                 </Field>
               </div>
 
-              <div className="input-group">
-                <Field name="password" placeholder='Password' />
-                {errors.password && touched.password && <span className='error'> {errors.password}  </span>}
+              <div className="gender-group">
+                <label htmlFor="">
+                  <Field type='checkbox' name='gender' value="male" />
+                  <span>  Male </span>
+                </label>
+
+                <label htmlFor="">
+                  <Field type='checkbox' name='gender' value='female' />
+                  <span> Female </span>
+                </label>
+
+                <label htmlFor="">
+                  <Field type='checkbox' name='gender' value='custom' />
+                  <span> Custom   </span>
+                </label>
+
               </div>
+
+
               <div className="button-group">
                 <button type="submit">Submit</button>
               </div>
