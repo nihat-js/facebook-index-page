@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import './IndexPage.scss'
+import RegisterSection from '../components/RegisterSection';
 
 export default function IndexPage() {
+
+  const  [ toggleRegister, setToggleRegister ] = useState(false)
+
+
   return (
     <div className='index-page'>
+
+    <RegisterSection toggleRegister={toggleRegister}  setToggleRegister={setToggleRegister} />
+  
 
       <section className="start">
         <div className="container">
@@ -22,7 +30,7 @@ export default function IndexPage() {
                 </div>
                 <hr />
                 <div className="create">
-                  <button> Create new account  </button>
+                  <button onClick={ () => setToggleRegister(!toggleRegister) } > Create new account  </button>
                 </div>
                 <p className="sub text">Create a Page for a celebrity, brand or business.</p>
               </div>
@@ -80,49 +88,3 @@ function LoginForm() {
 }
 
 
-function RegisterForm() {
-  const RegisterSchema = Yup.object().shape({
-    firstName : Yup.string().required().min(2,'Too short').max(35,'Too long'),
-    lastName : Yup.string().required().min(2,'Too short').max(35,'Too long'),
-    email: Yup.string().email('Invalid email').required('Required'),
-    password: Yup.string().required().min(6,'Too short').max(255,'Too long'),
-    birthDay : Yup.string().required(),
-    birthMonth : Yup.string().required(),
-    birthYear : Yup.number().required().min(4,'Too short').max(4,'Too long')
-  });
-
-  return (
-    <div className='login'>
-      <Formik
-        initialValues={{
-          email: '',
-          password: '',
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={values => {
-        }}
-      >
-        {({ errors, touched }) => (
-          <Form>
-
-            <div className="input-group">
-              <Field name="email" placeholder='Email or Phone number' />
-              {errors.email && touched.email && <span className='error'> {errors.email}  </span>}
-            </div>
-
-            <div className="input-group">
-              <Field name="password" placeholder='Password' />
-              {errors.password && touched.password && <span className='error'> {errors.password}  </span>}
-            </div>
-            <div className="button-group">
-              <button type="submit">Submit</button>
-            </div>
-          </Form>
-
-        )}
-      </Formik>
-
-    </div>
-
-  );
-}
