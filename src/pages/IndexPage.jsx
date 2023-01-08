@@ -85,9 +85,10 @@ function RegisterForm() {
     firstName : Yup.string().required().min(2,'Too short').max(35,'Too long'),
     lastName : Yup.string().required().min(2,'Too short').max(35,'Too long'),
     email: Yup.string().email('Invalid email').required('Required'),
-    password: Yup.string()
-      .min(6, 'Too Short!')
-      .required('Required'),
+    password: Yup.string().required().min(6,'Too short').max(255,'Too long'),
+    birthDay : Yup.string().required(),
+    birthMonth : Yup.string().required(),
+    birthYear : Yup.number().required().min(4,'Too short').max(4,'Too long')
   });
 
   return (
