@@ -1,47 +1,53 @@
-.index-page{
-  padding : 90px 0 ;
+.index-page {
+  padding: 90px 0;
   background-color: #f0f2f5;
 
-  section.start{
-    .container{
-      .row{
+  section.start {
+    .container {
+      .row {
         display: grid;
-        grid-template-columns: 1fr 1fr ;
+        grid-template-columns: 1fr 1fr;
         gap: 60px;
         align-items: center;
-        .left-column{
-          .heading{
+
+        .left-column {
+          .heading {
             font-size: 45px;
             margin-bottom: 8px;
-            color:  #1877f2;
+            color: #1877f2;
           }
-          .subheading{
+
+          .subheading {
             font-size: 25px;
           }
         }
+
         .right-column {
-          .main{
+          .main {
             max-width: 400px;
             padding: 20px 24px;
             background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1) , 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
-            form{
-              .input-group{
+
+            form {
+              .input-group {
                 margin-bottom: 16px;
+
                 input {
-                  border: 1px solid #ddd ;
+                  border: 1px solid #ddd;
                   border-radius: 6px;
-                  box-shadow:  0 4px 4px rgba(255,255,255,.6);
+                  box-shadow: 0 4px 4px rgba(255, 255, 255, .6);
                   outline: none;
                   width: 100%;
                   padding: 14px 16px;
                 }
               }
-              .button-group{
+
+              .button-group {
                 button {
                   width: 100%;
-                  color : #fff;
+                  color: #fff;
                   background-color: #1877f2;
                   font-size: 20px;
                   border: none;
@@ -50,6 +56,15 @@
                 }
               }
 
+              .forgot {
+                display: flex;
+                justify-content: center;
+
+                a {
+                  color: #1877f2;
+                  font-size: 16px;
+                }
+              }
             }
           }
         }

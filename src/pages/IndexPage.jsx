@@ -78,3 +78,50 @@ function LoginForm() {
 
   );
 }
+
+
+function RegisterForm() {
+  const RegisterSchema = Yup.object().shape({
+    firstName : Yup.string().required().min(2,'Too short').max(35,'Too long'),
+    lastName : Yup.string().required().min(2,'Too short').max(35,'Too long'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+      .min(6, 'Too Short!')
+      .required('Required'),
+  });
+
+  return (
+    <div className='login'>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={SignupSchema}
+        onSubmit={values => {
+        }}
+      >
+        {({ errors, touched }) => (
+          <Form>
+
+            <div className="input-group">
+              <Field name="email" placeholder='Email or Phone number' />
+              {errors.email && touched.email && <span className='error'> {errors.email}  </span>}
+            </div>
+
+            <div className="input-group">
+              <Field name="password" placeholder='Password' />
+              {errors.password && touched.password && <span className='error'> {errors.password}  </span>}
+            </div>
+            <div className="button-group">
+              <button type="submit">Submit</button>
+            </div>
+          </Form>
+
+        )}
+      </Formik>
+
+    </div>
+
+  );
+}
